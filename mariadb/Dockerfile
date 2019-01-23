@@ -1,11 +1,9 @@
 FROM mariadb:latest
 
+USER root
+
 # Environment variables (with defaults)
 ENV CRON_INTERVAL "0 3 * * *"
-ENV MYSQL_ROOT_PASSWORD "super_secret_123"
-ENV DATABASES "app_db"
-ENV DATABASE_USER "db_user"
-ENV DATABASE_PASSWORD "user_secret_123"
 
 # copy assets into Docker image
 COPY ./mariadb/assets /
