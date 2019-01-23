@@ -23,8 +23,10 @@ RUN chmod -R 0755 /docker-entrypoint-initdb.d && \
     mkdir -p /backups && \
     rm -rf /var/cache/*
 
+EXPOSE 3306
+
 # add own entrypoint, which calls standard mariadb entrypoint as well
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/ediqo_entrypoint.sh"]
 
 # start supervisord as the main process of the container
 CMD ["/usr/bin/supervisord", "-c", "/usr/local/supervisor.conf"]
